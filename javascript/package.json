@@ -1,0 +1,23 @@
+{
+  "name": "formality-to-nasic",
+  "version": "0.1.0",
+  "description": "Compiles Formality terms to a Nasic graph",
+  "main": "formality-to-nasic.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/moonad/formality-to-nasic.git"
+  },
+  "author": "Victor Maia",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/moonad/formality-to-nasic/issues"
+  },
+  "homepage": "https://github.com/moonad/formality-to-nasic#readme",
+  "dependencies": {
+    "formality-lang": "^0.1.7",
+    "nasic": "^0.1.1"
+  }
+}
