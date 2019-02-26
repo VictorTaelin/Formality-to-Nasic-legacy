@@ -47,7 +47,7 @@ const compile = (term, defs = {}) => {
           return get_var(ref_ptrs[name]);
         }
       default:
-        return build_net(Lam(false, "", null, Var(0)), net, ref_ptrs, var_ptrs, level);
+        return build_net(Lam("", null, Var(0)), net, ref_ptrs, var_ptrs, level);
     }
   };
   var level_of = {};
@@ -68,7 +68,7 @@ const decompile = (net) => {
           var_ptrs.push(new Pointer(ptr.addr, 1));
           var body = build_term(net, net.enter_port(new Pointer(ptr.addr, 2)), var_ptrs, dup_exit);
           var_ptrs.pop();
-          return Lam(false, "x" + var_ptrs.length, null, body);
+          return Lam("x" + var_ptrs.length, null, body);
         case 1:
           for (var index = 0; index < var_ptrs.length; ++index) {
             if (var_ptrs[var_ptrs.length - index - 1].equal(ptr)) {
@@ -78,7 +78,7 @@ const decompile = (net) => {
         case 2:
           var argm = build_term(net, net.enter_port(new Pointer(ptr.addr, 1)), var_ptrs, dup_exit);
           var func = build_term(net, net.enter_port(new Pointer(ptr.addr, 0)), var_ptrs, dup_exit);
-          return App(false, func, argm);
+          return App(func, argm);
       }
     } else {
       switch (ptr.port) {
